@@ -5,8 +5,8 @@ import util.AgeUtil;
 public class Student extends People {
     private Address address;
 
-    public Student(String name, String family_name, int age, Address address) {
-        super(name, family_name, age);
+    public Student(String name, String family_name, int age, String gender, Address address) {
+        super(name, family_name, age,gender);
         AgeUtil.checkAge(age);
         this.address = address;
     }

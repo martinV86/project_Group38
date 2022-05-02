@@ -9,8 +9,8 @@ public class Teacher extends People {
     private Address address;
     private double accued;
 
-    public Teacher(String name, String family_name, int age, Address address) {
-        super(name, family_name, age);
+    public Teacher(String name, String family_name, int age, String gender, Address address) {
+        super(name, family_name, age, gender);
         this.address = address;
         AgeUtil.checkAge(age);
     }

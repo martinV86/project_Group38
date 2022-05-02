@@ -6,14 +6,17 @@ public abstract class People {
     private String name;
     private String family_name;
     private int age;
+private String gender;
 
-
-    public People(String name, String family_name, int age) {
+    public People(String name, String family_name, int age,String gender) {
         this.name = name;
         this.family_name = family_name;
         this.age = age;
+        this.gender=gender;
 
     }
+
+    public String getGender() {return gender;}
 
     public String getName() {
         return name;

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Methodist extends People {
     private double salary;
     private ArrayList<Teacher> teachers;
-    public Methodist(String name, String family_name, int age, ArrayList <Teacher>teachers, double salary) {
-        super(name, family_name, age);
+    public Methodist(String name, String family_name, int age, String gender, ArrayList <Teacher>teachers, double salary) {
+        super(name, family_name, age,gender);
         this.teachers=teachers;
         this.salary=salary;
     }
@@ -23,10 +23,9 @@ public class Methodist extends People {
 
     @Override
     public String toString() {
-        return super.toString()+"Methodist" +
-                "salary=" + salary +
-                ", teachers=" + teachers +
-                '}';
+        return super.toString()+"Methodist , " +
+                "оклад " + salary
+               ;
     }
 }
 
