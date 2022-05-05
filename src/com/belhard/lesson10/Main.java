@@ -1,13 +1,13 @@
 package com.belhard.lesson10;
 
+import com.belhard.lesson10.base.Box;
 import com.belhard.lesson10.model.Car;
 import com.belhard.lesson10.model.Track;
 import com.belhard.lesson10.util.MaxPowerCarComparator;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -57,5 +57,18 @@ public class Main {
                 .sorted(pawerComparator)
                 //можно добавить еще компаратор
                 .forEach(car-> System.out.println(car));
+        //Collections.sort(cars);
+
+        Box<String>stringBox=new Box<>("hello");
+        System.out.println(stringBox.getT());
+        Box<Integer>integerBox=new Box<>(45);
+        System.out.println(integerBox.getT());
+        List<Box>boxes=new ArrayList<Box>(){{
+            add(stringBox);
+            add(integerBox);
+        }};
+        boxes.stream()
+                .filter(s->s.getT().equals("hello"))
+                .forEach(System.out::println);
     }
 }
