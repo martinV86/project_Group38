@@ -5,7 +5,7 @@ import com.belhard.lesson10.People;
 import util.AgeUtil;
 import util.SalaryUtil;
 
-public class Teacher extends People {
+public class Teacher extends People implements Comparable<Teacher>{
 
     private Address address;
     private double accued;
@@ -13,7 +13,7 @@ public class Teacher extends People {
     public Teacher(String name, String family_name, int age, String gender, Address address) {
         super(name, family_name, age, gender);
         this.address = address;
-        AgeUtil.checkAge(age);
+        AgeUtil.checkAgeT(age);
     }
 
 
@@ -47,5 +47,10 @@ public class Teacher extends People {
 
     public String displayInfo() {
         return "Преподаватель: " + super.toString() + " " + address.displayInfo() + " " + " зарплата " + accued;
+    }
+
+    @Override
+    public int compareTo(Teacher o) {
+        return this.getName().compareTo(o.getName());
     }
 }

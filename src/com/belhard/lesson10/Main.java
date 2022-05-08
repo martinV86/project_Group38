@@ -115,10 +115,12 @@ import java.util.Scanner;
                 case 0:
                     break;
             }
+            System.out.println("\n преподавательский состав:");
             Methodist methodist = converter.convert(teacher1);
             System.out.println(methodist.toString());
             teachers.stream()
-                    .forEach(s -> System.out.println(s));
+                    .sorted()
+                    .forEach(System.out::println);
             System.out.println();
             System.out.println("Пркподаватели на пенсии: ");
             teachers.stream()
@@ -136,7 +138,8 @@ import java.util.Scanner;
                     .forEach(s -> System.out.println(s.displayInfo()));
 
 
-        }
+
+
 
         //для консольного воода данных
         private static Teacher dataTeacher() {

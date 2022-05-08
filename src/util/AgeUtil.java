@@ -9,14 +9,27 @@ public class AgeUtil {
         try {
             checkAgeException(age);
             checkAgeStudent(age);
-            checkAgeTeacher(age);
-        } catch (AgeTeacherException | AgeStudentException e) {
+//            checkAgeTeacher(age);
+//        } catch (AgeTeacherException | AgeStudentException e) {
+
+        } catch (AgeStudentException e) {
             e.printStackTrace();
         } catch (AgeException e) {
             e.printStackTrace();
+        } finally {
+            System.out.println("возраст студента проверен");
         }
-        finally {
-            System.out.println("возраст проверен");
+    }
+    public static void checkAgeT(int age){
+        try {
+            checkAgeTeacher(age);
+            checkAgeException(age);
+        } catch (AgeTeacherException e) {
+            e.printStackTrace();
+        } catch (AgeException e) {
+            e.printStackTrace();
+        }finally {
+            System.out.println("возраст преподавателя проверен");
         }
     }
 

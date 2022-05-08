@@ -51,10 +51,9 @@ public class Group {
     }
 
     public void stInfo() {
-        for (Student n : students) {
-            System.out.println(n.displayInfo());
-        }
-
+        students.stream()
+                .sorted()
+                .forEach(System.out::println);
     }
 
     public void delStudent(String name) {
