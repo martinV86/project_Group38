@@ -75,7 +75,7 @@ public class Group {
             System.out.println(n.displayInfo());
         }
     }
-
+    // если не требуется консольный ввод
     public void newStudent(Student newStudents) {
         students.add(newStudents);
         for (Student n : students) {

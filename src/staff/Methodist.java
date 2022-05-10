@@ -15,11 +15,9 @@ public class Methodist extends People {
     public ArrayList<Teacher> getTeachers() {
         return teachers;
     }
-
     public double getSalary() {
         return salary;
     }
-
     @Override
     public String toString() {
         return super.toString()+"Methodist , " +
