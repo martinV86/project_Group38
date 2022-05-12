@@ -1,4 +1,4 @@
-package com.belhard.lesson10;
+package com.belhard.lesson10.model;
 
 public class Address {
     private String city;

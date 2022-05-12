@@ -1,9 +1,15 @@
 package com.belhard.lesson10;
 
-import staff.Methodist;
-import staff.Teacher;
-import util.GroupComparator;
-import util.MaxAccuedComparator;
+import com.belhard.lesson10.model.Address;
+import com.belhard.lesson10.model.Group;
+import com.belhard.lesson10.model.Student;
+import com.belhard.lesson10.model.staff.Methodist;
+import com.belhard.lesson10.model.staff.Teacher;
+import com.belhard.lesson10.repository.GroupRepository;
+import com.belhard.lesson10.service.GroupService;
+import com.belhard.lesson10.util.Converter;
+import com.belhard.lesson10.util.GroupComparator;
+import com.belhard.lesson10.util.MaxAccuedComparator;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,6 +20,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+        GroupRepository groupRepository=new GroupRepository();
+        GroupService groupService=new GroupService(groupRepository);
         Converter<Methodist, Teacher> converter = teacher1 -> new Methodist(teacher1.getName(), teacher1.getFamily_name(), teacher1.getAge(), teacher1.getGender(), teachers, 5000);
         // если не требуется консольнный ввод данных
         Teacher teacher1 = new Teacher("Иван", "Иванов", 35, "м", new Address("Минск", "Рокосовского", 24, 24));
@@ -65,7 +73,8 @@ public class Main {
 //        teachers.add(teacher1);
 //        teachers.add(teacher2);
 //        teachers.add(teacher3);
-        ArrayList<Group> grups = new ArrayList<>();
+
+        ArrayList<Group> group = new ArrayList<>();
         Group group1 = new Group(1, 1, students1, teacher2, 2020, 2025);
         System.out.println(group1.displayInfo());
         group1.stInfo();
@@ -75,9 +84,10 @@ public class Main {
         Group group3 = new Group(3, 1, students3, teacher4, 2018, 2023);
         System.out.println(group3.displayInfo());
         group3.stInfo();
-        grups.add(group1);
-        grups.add(group2);
-        grups.add(group3);
+        group.add(group1);
+        group.add(group2);
+        group.add(group3);
+        groupService.addGroups(group);
         System.out.println("Укажите действие: 1 - добавть студента; 2 -отчислить студетна; 0-выйти из программы");
         int choice = scanner.nextInt();
         switch (choice) {
@@ -142,7 +152,7 @@ public class Main {
                 .forEach(s -> System.out.println(s));
         System.out.println();
         System.out.println("Группы которые выпустятся не позднее 2024");
-        grups.stream()
+        group.stream()
                 .filter(s -> s.getYear_of_issue() <= 2024)
                 .sorted(groupComparator)
                 .forEach(s -> System.out.println(((Group) s).displayInfo()));

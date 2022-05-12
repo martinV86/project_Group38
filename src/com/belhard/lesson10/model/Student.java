@@ -1,6 +1,7 @@
-package com.belhard.lesson10;
+package com.belhard.lesson10.model;
 
-import util.AgeUtil;
+import com.belhard.lesson10.base.People;
+import com.belhard.lesson10.util.AgeUtil;
 
 public class Student extends People implements Comparable<Student>{
     private Address address;
@@ -25,3 +26,4 @@ public class Student extends People implements Comparable<Student>{
         return this.getName().compareTo(o.getName());
     }
 }
+//создать сервис и репозиторий с методами добавлени/удаления

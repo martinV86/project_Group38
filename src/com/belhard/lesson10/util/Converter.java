@@ -1,4 +1,4 @@
-package com.belhard.lesson10;
+package com.belhard.lesson10.util;
 
 @FunctionalInterface
 public interface Converter<T,M> {

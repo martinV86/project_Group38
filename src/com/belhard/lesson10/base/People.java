@@ -1,4 +1,4 @@
-package com.belhard.lesson10;
+package com.belhard.lesson10.base;
 
 public abstract class People {
     private String name;
@@ -12,6 +12,17 @@ public abstract class People {
         this.age = age;
         this.gender=gender;
 
+    }
+
+    public People(String name, String family_name, String gender) {
+        this.name = name;
+        this.family_name = family_name;
+        this.gender=gender;
+
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getGender() {return gender;}

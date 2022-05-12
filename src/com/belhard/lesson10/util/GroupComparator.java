@@ -1,6 +1,6 @@
-package util;
+package com.belhard.lesson10.util;
 
-import com.belhard.lesson10.Group;
+import com.belhard.lesson10.model.Group;
 
 import java.util.Comparator;
 

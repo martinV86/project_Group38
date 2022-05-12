@@ -1,6 +1,6 @@
-package util;
+package com.belhard.lesson10.util;
 
-import staff.Teacher;
+import com.belhard.lesson10.model.staff.Teacher;
 
 import java.util.Comparator;
 

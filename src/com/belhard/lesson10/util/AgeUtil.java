@@ -1,8 +1,8 @@
-package util;
+package com.belhard.lesson10.util;
 
-import exception.AgeException;
-import exception.AgeStudentException;
-import exception.AgeTeacherException;
+import com.belhard.lesson10.exception.AgeException;
+import com.belhard.lesson10.exception.AgeStudentException;
+import com.belhard.lesson10.exception.AgeTeacherException;
 
 public class AgeUtil {
     public static void checkAge(int age) {

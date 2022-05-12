@@ -1,5 +1,5 @@
-package staff;
-import com.belhard.lesson10.People;
+package com.belhard.lesson10.model.staff;
+import com.belhard.lesson10.base.People;
 
 import java.util.ArrayList;
 
@@ -25,4 +25,5 @@ public class Methodist extends People {
                 ;
     }
 }
+//создать сервис и репозиторий с методами добавлени/удаления, расчет зп, а также выполнить задание на слайдах
 

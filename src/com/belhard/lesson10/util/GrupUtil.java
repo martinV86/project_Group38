@@ -1,7 +1,7 @@
-package util;
+package com.belhard.lesson10.util;
 
-import exception.CourseException;
-import exception.Group_nameException;
+import com.belhard.lesson10.exception.CourseException;
+import com.belhard.lesson10.exception.Group_nameException;
 
 public class GrupUtil {
     public static void checkGrup(int number, int curs) {

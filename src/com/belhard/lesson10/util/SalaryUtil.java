@@ -1,8 +1,8 @@
-package util;
+package com.belhard.lesson10.util;
 
-import exception.PremiumException;
-import exception.SalaryException;
-import exception.Working_daysException;
+import com.belhard.lesson10.exception.PremiumException;
+import com.belhard.lesson10.exception.SalaryException;
+import com.belhard.lesson10.exception.Working_daysException;
 
 public class SalaryUtil {
     public static void checkSalary(int salary,int working_days,int days_worked, int premium){

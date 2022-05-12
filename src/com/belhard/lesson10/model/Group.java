@@ -1,7 +1,7 @@
-package com.belhard.lesson10;
+package com.belhard.lesson10.model;
 
-import staff.Teacher;
-import util.GrupUtil;
+import com.belhard.lesson10.model.staff.Teacher;
+import com.belhard.lesson10.util.GrupUtil;
 
 import java.util.ArrayList;
 

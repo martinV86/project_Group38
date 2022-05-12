@@ -1,9 +1,9 @@
-package staff;
+package com.belhard.lesson10.model.staff;
 
-import com.belhard.lesson10.Address;
-import com.belhard.lesson10.People;
-import util.AgeUtil;
-import util.SalaryUtil;
+import com.belhard.lesson10.model.Address;
+import com.belhard.lesson10.base.People;
+import com.belhard.lesson10.util.AgeUtil;
+import com.belhard.lesson10.util.SalaryUtil;
 
 public class Teacher extends People implements Comparable<Teacher>{
 
@@ -11,8 +11,13 @@ public class Teacher extends People implements Comparable<Teacher>{
     private double accued;
 
     public Teacher(String name, String family_name, int age, String gender, Address address) {
-        super(name, family_name, age, gender);
+        super(name, family_name, gender);
         this.address = address;
+        if(age>0){
+            super.setAge(age);
+        } else{
+            super.setAge(1);
+        }
         AgeUtil.checkAgeT(age);
     }
 
@@ -41,6 +46,10 @@ public class Teacher extends People implements Comparable<Teacher>{
         return accued;
     }
 
+    public void setAccued(double accued) {
+        this.accued = accued;
+    }
+
     public double getAccued() {
         return accued;
     }
@@ -54,3 +63,4 @@ public class Teacher extends People implements Comparable<Teacher>{
         return this.getName().compareTo(o.getName());
     }
 }
+//создать сервис и репозиторий с методами добавлени/удаления, расчет зп, а также выполнить задание на слайдах

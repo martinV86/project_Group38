@@ -1,4 +1,4 @@
-package exception;
+package com.belhard.lesson10.exception;
 
 public class SalaryException extends Exception{
     public SalaryException (String message){ super(message);}
