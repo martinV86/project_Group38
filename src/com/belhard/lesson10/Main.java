@@ -29,15 +29,19 @@ public class Main {
         }
     }
 
+
     public static void faileByte(){
         // file
         try {
+
             FileInputStream fileInputStream=new FileInputStream("file.txt");
+            InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream,"UTF-8");
             FileOutputStream fileOutputStream=new FileOutputStream("fileCopy.txt");
-//            FileInputStream fileInputStream=new FileInputStream("file.txt", StandardCharsets.UTF_8);
+//            FileInputStream fileInputStream=new FileInputStream("file.txt", UTF_8);
             int a;
             String name="";
-            while ((a=fileInputStream.read())!=-1){
+//            while ((a=fileInputStream.read())!=-1){
+            while ((a=inputStreamReader.read())!=-1){
                 fileOutputStream.write(a);
                 //пока не дошло до конца файла (-1) - читай
 //                System.out.print((char) a);
