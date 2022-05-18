@@ -48,18 +48,18 @@ ArrayList<Student>students1;
 
     @Test
     public void addGroups() {
-        groups.add(new Group(3, 1, students3, teacher4, 2018, 2023));
+        int size=3;
         groupList.add(group3);
         groupRepository.addGroups(groupList);
-        assertEquals(groups,groupList);
+        assertTrue(size==groupList.size());
     }
 
     @Test
     public void removeGroups() {
-        groups.remove(new Group(1, 1, students1, teacher2, 2020, 2025));
+        int size=2;
         groupList.remove(group1);
         groupRepository.removeGroups(groupList);
-        assertEquals(groups,groupList);
+        assertTrue(size==groupList.size());
 
     }
 

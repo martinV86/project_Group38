@@ -13,16 +13,23 @@ import com.belhard.lesson10.service.GroupService;
 import com.belhard.lesson10.service.MethodistService;
 import com.belhard.lesson10.service.StudentService;
 import com.belhard.lesson10.service.TeacherService;
-import com.belhard.lesson10.util.Converter;
-import com.belhard.lesson10.util.GroupComparator;
-import com.belhard.lesson10.util.MaxAccuedComparator;
+import com.belhard.lesson10.util.*;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) {
+        ParserUtilGroup parserUtilGroup=new ParserUtilGroup();
+       HashMap<String,Integer>hashMapGroup=parserUtilGroup.parserGroup("Group.txt");
+//       for (Map.Entry<String,String>map:hashMapGroup.entrySet()){
+//        System.out.println(map.getKey());
+//       }
+//        System.out.println(hashMapGroup.get("выпуск3"));
+        ParserUtilStudent parserUtilStudent=new ParserUtilStudent();
+        List<String> studentDate=parserUtilStudent.parserStudent("student.txt");
+        ParserUtilTeacher parserUtilTeacher=new ParserUtilTeacher();
+        List<String> teacherDate=parserUtilTeacher.parserTeacher("teacher.txt");
         Scanner scanner = new Scanner(System.in);
         ArrayList<Teacher> teachers = new ArrayList<Teacher>();
         GroupRepository groupRepository = new GroupRepository();
