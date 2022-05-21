@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepository {
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
     private List<Student>students=new ArrayList<>();
     public void removeStudent(List<Student>removeStudent){
         students.remove(removeStudent);

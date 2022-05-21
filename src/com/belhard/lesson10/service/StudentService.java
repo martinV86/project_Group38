@@ -15,14 +15,10 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public void removeStudent(List<Student> removeStudent, String name) {
+    public void removeStudent(List<Student> removeStudent, Student student) {
         System.out.println("removeStudent: ");
-        for (Student n : removeStudent) {
-            if (name.equalsIgnoreCase(n.getName())) {
-                removeStudent.remove(n);
-            }
-        }
-        removeStudent.forEach(student -> System.out.println(student.displayInfo()));
+       removeStudent.remove(student);
+        removeStudent.forEach(s -> System.out.println(s.displayInfo()));
         studentRepository.removeStudent(removeStudent);
     }
 

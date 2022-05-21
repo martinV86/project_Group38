@@ -25,6 +25,13 @@ public class Group {
         this.teacher = teacher;
     }
 
+    public Group(int group_name, int course, int year_of_admission, int year_of_issue) {
+        this.group_name = group_name;
+        this.course = course;
+        this.year_of_admission = year_of_admission;
+        this.year_of_issue = year_of_issue;
+    }
+
     public int getYear_of_issue() {return year_of_issue;}
 
     public ArrayList<Student> getStudents() {

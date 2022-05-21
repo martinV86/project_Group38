@@ -1,6 +1,9 @@
 package com.belhard.lesson10.util;
 
 
+import com.belhard.lesson10.model.Address;
+import com.belhard.lesson10.model.Student;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParserUtilStudent {
-    public static List<String> parserStudent(String faile) {
+    public static List<Student> parserStudent(String faile) {
         FileReader fileReader = null;
-        List<String> dateStudent = new ArrayList<>();
+       ArrayList<Student>students=new ArrayList<>();
         try {
             fileReader = new FileReader(faile);
             int a;
@@ -21,10 +24,11 @@ public class ParserUtilStudent {
             String[] masString = num.split("\n");
             for (String n : masString) {
                 String[] masValue = n.split(" ");
-                for (String f : masValue) {
-                    dateStudent.add(f);
-                }
+                Address address=new Address(masValue[4],masValue[5],Integer.valueOf(masValue[6]),Integer.valueOf(masValue[7]));
+                Student student=new Student(masValue[0],masValue[1],Integer.valueOf(masValue[2]),masValue[3], address);
+                students.add(student);
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,6 +40,7 @@ public class ParserUtilStudent {
                 e.printStackTrace();
             }
         }
-        return dateStudent;
+        return students;
+
     }
 }

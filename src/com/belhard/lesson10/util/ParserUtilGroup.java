@@ -1,6 +1,8 @@
 package com.belhard.lesson10.util;
 
 import com.belhard.lesson10.model.Group;
+import com.belhard.lesson10.model.Student;
+import com.belhard.lesson10.model.staff.Teacher;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,14 +13,25 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ParserUtilGroup {
-    public static HashMap<String, Integer> parserGroup(String faile) {
+    public static List<Group> parserGroup(String faile,List<Student>students,List<Teacher>teachers) {
         FileReader fileReader = null;
         FileWriter fileWriter = null;
-        String k = "";
-        int v = 0;
-        String vStr = "";
-        List<String> dateGroup = new ArrayList<>();
-        HashMap<String, Integer> hashMapGroup = new HashMap<String, Integer>();
+        ArrayList<Group>groups=new ArrayList<>();
+        List<Group>groupsName=new ArrayList<>();
+        int i=0;
+        ArrayList<Student> students1 = new ArrayList<>() {{
+            add(students.get(0));
+            add(students.get(1));
+        }};
+        ArrayList<Student> students2 = new ArrayList<>() {{
+            add(students.get(2));
+            add(students.get(3));
+        }};
+        ArrayList<Student> students3 = new ArrayList<>() {{
+            add(students.get(4));
+            add(students.get(5));
+            add(students.get(6));
+        }};
         try {
             fileReader = new FileReader(faile);
             int a;
@@ -26,23 +39,21 @@ public class ParserUtilGroup {
             while ((a = fileReader.read()) != -1) {
                 num += (char) a;
             }
-            String[] masString = num.split("\n");
+            String[] masString = num.split("\r\n");
             for (String n : masString) {
+                ArrayList<Student>studentArrayList=students1;
                 String[] masValueString = n.split(" ");
-                for (String f : masValueString) {
-                    dateGroup.add(f);
-                }
+                Group group=new Group(Integer.valueOf(masValueString[0]),Integer.valueOf(masValueString[1]),Integer.valueOf(masValueString[2]),Integer.valueOf(masValueString[3]));
+                groupsName.add(group);
             }
-            for (String n : dateGroup) {
-                if (n.matches("^[0-9]*$") == false) {
-                    k = n;
-                } else {
-                    vStr = n;
-                    v = Integer.valueOf(vStr);
-                }
+            Group group1=new Group(groupsName.get(0).getGroup_name(),groupsName.get(0).getCourse(),students1,teachers.get(0),groupsName.get(0).getYear_of_admission(),groupsName.get(0).getYear_of_issue());
+            Group group2=new Group(groupsName.get(1).getGroup_name(),groupsName.get(1).getCourse(),students2,teachers.get(1),groupsName.get(1).getYear_of_admission(),groupsName.get(1).getYear_of_issue());
+            Group group3=new Group(groupsName.get(2).getGroup_name(),groupsName.get(2).getCourse(),students3,teachers.get(2),groupsName.get(2).getYear_of_admission(),groupsName.get(2).getYear_of_issue());
 
-                hashMapGroup.put(k, v);
-            }
+               groups.add(group1);
+               groups.add(group2);
+               groups.add(group3);
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -52,6 +63,6 @@ public class ParserUtilGroup {
                 e.printStackTrace();
             }
         }
-        return hashMapGroup;
+        return groups;
     }
 }

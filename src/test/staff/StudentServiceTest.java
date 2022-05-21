@@ -23,7 +23,7 @@ public class StudentServiceTest {
     Student student7;
     Student newStudents;
     StudentRepository studentRepository = new StudentRepository();
-    List<Student> studentList;
+    List<Student> studentList = new ArrayList<>();
 
     @Before
     public void setUp() throws Exception {
@@ -55,23 +55,18 @@ public class StudentServiceTest {
 
     @Test
     public void removeStudent() {
-        int size=6;;
-        String name = "Денис";
-        for (Student n : studentList) {
-            if (name.equalsIgnoreCase(n.getName())) {
-                studentList.remove(n);
-            }
-        }
+        int size = 6;
+        studentList.remove(student7);
         studentRepository.removeStudent(studentList);
-        assertTrue(size==studentList.size());
+        assertTrue(size == studentList.size());
     }
 
     @Test
     public void addStudent() {
-        int size=8;
+        int size = 8;
         studentList.add(newStudents);
         studentRepository.addStudent(studentList);
-        assertTrue(size==studentList.size());
+        assertTrue(size == studentList.size());
     }
 
     @Test
@@ -84,8 +79,8 @@ public class StudentServiceTest {
                 index = studentList.indexOf(n);
             }
         }
-        studentList.set(index,newStudents);
+        studentList.set(index, newStudents);
         studentRepository.changeStudent(studentList);
-        assertEquals(students,studentList);
+        assertEquals(students, studentList);
     }
 }

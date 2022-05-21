@@ -64,4 +64,8 @@ public class GroupService {
                 .forEach(s -> System.out.println(((Group) s).displayInfo()));
 
     }
+    public void String(List<Group>groups){
+        groups.stream()
+                .forEach(group -> System.out.println(((Group)group).displayInfo()));
+    }
 }

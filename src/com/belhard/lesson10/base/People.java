@@ -41,6 +41,6 @@ public abstract class People {
 
     @Override
     public String toString() {
-        return name + " " + family_name + " " + age + " лет ";
+        return name + " " + family_name + " " + age + " лет "+" "+ gender;
     }
 }
