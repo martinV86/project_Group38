@@ -33,7 +33,6 @@ public class Main {
         teacherRepository.setTeachers(teacherDate);
         TeacherService teacherService = new TeacherService(teacherRepository);
         StudentRepository studentRepository = new StudentRepository();
-//        studentRepository.setStudents(studentDate);
         StudentService studentService = new StudentService(studentRepository);
         MethodistRepository methodistRepository = new MethodistRepository();
         MethodistService methodistService = new MethodistService(methodistRepository);
